@@ -20,3 +20,13 @@
                                                   站点域名
  注意json格式即可，这里dsn里面即第三步的数据库账号密码，redis域名，注意这里可以使mycat的域名账号密码
   第六步，注意数据库中gc_set_domain中添加支付域名和站点域名w57.yczhifu.com
+
+
+                               开奖未结算
+     进入易彩或者博友的结算服务器，查看history或者crontab计划任务，运行php脚本
+     开奖未结算手动结算
+sudo php /home/git/gcapi/user/index.php syssettlement index a26 bj28 914071
+sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
+
+
+工作中如果需要临时修改私库gcset字段的时候，要进入对应的私库redis中，4库是私库，删除gcget这个kv值
