@@ -30,3 +30,4 @@ sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
 
 
 工作中如果需要临时修改私库gcset字段的时候，要进入对应的私库redis中，4库是私库，删除gcget这个kv值
+修改杀率即中奖率，需要修改对应私库中的gcset表中winrate值，然后清理对应redis私库的gcset值
