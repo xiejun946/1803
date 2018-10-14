@@ -31,3 +31,9 @@ sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
 
 工作中如果需要临时修改私库gcset字段的时候，要进入对应的私库redis中，4库是私库，删除gcget这个kv值
 修改杀率即中奖率，需要修改对应私库中的gcset表中winrate值，然后清理对应redis私库的gcset值
+
+
+
+
+                                   主PC和手机域名
+ 在超级后台，域名管理中可以添加主，PC和手机域名，当电脑中输入了手机的域名，会跳转到对应的主PC域名，手机输入了电脑域名，也会跳转到主手机域名                                  
