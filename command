@@ -8,3 +8,7 @@
 重启apache   ansible websrv  -m shell -a "cd /usr/local/apache/bin;sudo ./apachectl graceful"
 同步apachepc   ansible websrv -u centos -s -m copy -a "src=/usr/local/apache/conf/vhost2/ycpc.conf dest=/usr/local/apache/conf/vhost2"
 同步nginxpc    ansible nginx -u centos -s -m copy -a "src=/opt/nginx_pc.conf dest=/usr/local/nginx/conf/vhost"
+博有无线    博友无线只有nginx服务
+同步h5配置文件     ansible nginx -m copy -u centos -s -a "src=/opt/bywxnginx_h5.conf  dest=/usr/local/nginx/conf/vhost3"
+同步电脑文件       ansible nginx -m copy -u centos -s -a "src=/opt/bywxnginx_pc.conf  dest=/usr/local/nginx/conf/vhost3"
+ 重启          ansible nginx -m shell -a "sudo lnmp nginx reload"
