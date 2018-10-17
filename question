@@ -5,3 +5,5 @@ mysql命令行还原的时候不论在数据库外还原还是数据库内用sou
 解决方法用命令行备份
 mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 lts6 >lts6_bak.sql
 不需要用sudo
+拉代码的时候出现报错，可能原因是没有加sudo
+网站打开报错400，提示fikker，即为fikker中没有添加
