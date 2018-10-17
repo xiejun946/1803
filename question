@@ -1,1 +1,7 @@
 计划任务代理报表？
+答案 在结算服务器计划任务中期中一个php程序
+mysql命令行还原的时候不论在数据库外还原还是数据库内用source，命令成功执行，还原之后没数据
+答案 原因是mysqlyog 软件的bug，自动在sql中添加use到源数据库，所以新数据库自然没数据，
+解决方法用命令行备份
+mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 lts6 >lts6_bak.sql
+不需要用sudo
