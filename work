@@ -54,7 +54,7 @@ pc.aitgks.com         cname         chat.gccdn01.com
 userapi      ltstestuserapi.aitgks.com             cname   other.gccdn01.com
 adminapi     ltstestadminapi.aitgks.com 
 gc           ltstestadmin.aitgks.com
-ws           ltstestws.aitgks.com                            
+ws           ltstestws.aitgks.com         A记录   解析到源ip                   
 2 博友主控fikker上面添加到聊天室，原地址直接填写服务器IP就可
 3数据库备份还原，遇到问题，用sqlyog软件备份会自动添加use 源数据库，解决方法为保证数据正确性，用mysqldump命令行备份还原
 mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 --single-lts6 >lts6_bak.sql
@@ -62,7 +62,7 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 
 4 进入云主机上备份还原好的服务器中，进入/usr/local/apache/conf/vhost/chat.conf中修改聊天室域名
 分别修改前台，后台，接口配置文件，后台管理配置文件
-进入/home/git 用grep -r -o 递归搜索websocket配置文件，并且修改
+进入/home/git 用grep -r -o 递归搜索websocket配置文件，和前台 并且修改
 重启apache
 修改redis.php，定义连接的数据库
 5修改测试站redis，聊天室用的是测试站的redis，
