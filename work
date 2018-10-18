@@ -19,19 +19,19 @@
                                                   后台域名
                                                   站点域名
  注意json格式即可，这里dsn里面即第三步的数据库账号密码，redis域名，注意这里可以使mycat的域名账号密码
-  第六步，注意数据库中gc_set_domain中添加支付域名和站点域名w57.yczhifu.com,结算服务器，老的需要添加代理报表计划任务，新的易彩需要添加结算的计划任务
+ 第六步，注意数据库中gc_set_domain中添加支付域名主PC和手机域名w57.yczhifu.com,结算服务器，老的需要添加代理报表计划任务，新的易彩需要添加结算的计划任务
 
 
                                开奖未结算
      进入易彩或者博友的结算服务器，查看history或者crontab计划任务，运行php脚本
-     开奖未结算手动结算
+     开奖未结算手动结算参数是index
 sudo php /home/git/gcapi/user/index.php syssettlement index a26 bj28 914071
 sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
-
+sudo php /home/git/gcapi/user/index.php syssettlement index w30 s_yck3 1810180421
 
 工作中如果需要临时修改私库gcset字段的时候，要进入对应的私库redis中，4库是私库，删除gcget这个kv值
 修改杀率即中奖率，需要修改对应私库中的gcset表中winrate值，然后清理对应redis私库的gcset值
-
+开奖公告需要修改对应易彩或者博友或者博有无线中redis公库，8库中new_open_num，即可，开奖公告显示在前台，读取redis
 
 
 
@@ -46,3 +46,27 @@ sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
              3在亚马逊平台上备份与还原redis数据库，新建一台
              4修改redis dsn表
              5开启维护
+             
+             
+                                 开通聊天室
+1在狗爹网站上面解析域名，cname解析到（可以对照全球dns传播检查器查看之前的聊天室解析cname）
+pc.aitgks.com         cname         chat.gccdn01.com
+userapi      ltstestuserapi.aitgks.com             cname   other.gccdn01.com
+adminapi     ltstestadminapi.aitgks.com 
+gc           ltstestadmin.aitgks.com
+ws           ltstestws.aitgks.com                            
+2 博友主控fikker上面添加到聊天室，原地址直接填写服务器IP就可
+3数据库备份还原，遇到问题，用sqlyog软件备份会自动添加use 源数据库，解决方法为保证数据正确性，用mysqldump命令行备份还原
+mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 --single-lts6 >lts6_bak.sql
+mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 lts11<lts6_bak.sql
+
+4 进入云主机上备份还原好的服务器中，进入/usr/local/apache/conf/vhost/chat.conf中修改聊天室域名
+分别修改前台，后台，接口配置文件，后台管理配置文件
+进入/home/git 用grep -r -o 递归搜索websocket配置文件，并且修改
+重启apache
+
+5修改测试站redis，聊天室用的是测试站的redis，
+
+
+
+             
