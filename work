@@ -64,7 +64,7 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 分别修改前台，后台，接口配置文件，后台管理配置文件
 进入/home/git 用grep -r -o 递归搜索websocket配置文件，并且修改
 重启apache
-
+修改redis.php，定义连接的数据库
 5修改测试站redis，聊天室用的是测试站的redis，
 
 
