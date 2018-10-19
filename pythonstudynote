@@ -2,3 +2,31 @@
 lstrip()删除开头空白
 rstrip()删除末尾空白
 strip()删除两端空白
+字符串大小写控制
+a="zhame bong"
+print (a.lower())
+print (a.upper())
+print (a.title())
+字符串的拼接
+message="a person who never made a mistake never tried anything new"
+famous_person="albert einstein"
+print (famous_person+"once said"+message.lower())
+print (famous_person+"once said"+message.upper())
+print (famous_person+"once said"+message.title()
+字符串的制表符\t，换行符\n
+a=" zhame\tbong\nxiejun "
+print (a.lstrip())
+print (a.rstrip())
+print (a.strip())
+
+
+                                                     数字类型
+注意，在3/2在python2中为1 ，，在python3中为1.5 
+数值运算  + - * / 乘方** %
+print ((3+2)*4)          --》20
+print ((3+2*4)           --》11
+print (0.2+0.1)           --》0.30000000000004   注意结果可能是多位
+                                      python注释用#标识                                   
+# -*- coding:utf-8 -*-
+#向大家问好
+print ("hello python people!")
