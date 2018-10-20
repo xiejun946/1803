@@ -7,3 +7,6 @@ mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkW
 不需要用sudo
 拉代码的时候出现报错，可能原因是没有加sudo
 网站打开报错400，提示fikker，即为fikker中没有添加
+网站打不开首先ping一下，如果可以ping通，代表dns解析以及fikker正常，如果ping不通，可能是fikker出问题或者解析出问题
+如果网站打开报错400.显示fikker，即主控没有添加
+网站首先检查前台，fikker，dns解析，一般后台不会出问题。
