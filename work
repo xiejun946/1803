@@ -67,6 +67,6 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 修改redis.php，定义连接的数据库
 5修改测试站redis，聊天室用的是测试站的redis，
 
-
+数据库采用不分库分表，手动分库原则，流量大的库单独放在一台实例中，有点简单方便，减小单台实例的读写负载
 
              
