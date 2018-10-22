@@ -73,3 +73,4 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 官彩没结算，直接运行php即可
 私彩没开奖结算都是运行一下php就可以了
              
+苹果app用的是h5的域名，安卓用的是前台接口
