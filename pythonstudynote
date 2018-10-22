@@ -31,3 +31,19 @@ print (0.2+0.1)           --》0.30000000000004   注意结果可能是多位
 # -*- coding:utf-8 -*-
 #向大家问好
 print ("hello python people!")
+
+
+                                       方法与函数的区别
+ 方法                                    函数
+  L.append()                               sorted(L) 临时排列
+ L.sort() 永久排列                          len(L)
+ L.insert()                                list(range(1,6,2))
+ L.pop()                                    min(L)
+ L.reverse() 永久倒序显示不排列               max(L)
+ L.remove()                                 sum(L)
+ 
+ 
+ 列表解析
+ L=[i**3 for i in range(1,11)]
+
+ 
