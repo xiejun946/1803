@@ -6,6 +6,9 @@
 2进入fikker相应的站点添加域名
 3修改dsn，注意是json格式，因为dsn是hash表类型
 
+
+支付域名和站点域名的区别是需要对应私库数据库gcset_domain中添加域名
+
                                               开通站点步骤流程
  进入fikker主控新增套餐，然后用用client账号登录主控客户端购买对应套餐，添加对应站点的域名以及支付域名到w47.yczhifu.com到支付域名组
  第二步，进入dns盾，添加fikker主机的域名cname，例如w57.googleecdn.com 
@@ -28,6 +31,7 @@
 sudo php /home/git/gcapi/user/index.php syssettlement index a26 bj28 914071
 sudo php /home/git/gcapi/user/index.php syssettlement index w31 s_bjpk10 708028
 sudo php /home/git/gcapi/user/index.php syssettlement index w30 s_yck3 1810180421
+如果是官彩，没有开奖，需要修改手动添加数据库号码，再执行php进行结算
 
 工作中如果需要临时修改私库gcset字段的时候，要进入对应的私库redis中，4库是私库，删除gcget这个kv值
 修改杀率即中奖率，需要修改对应私库中的gcset表中winrate值，然后清理对应redis私库的gcset值
