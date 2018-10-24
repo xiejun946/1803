@@ -9,6 +9,9 @@
 
 支付域名和站点域名的区别是需要对应私库数据库gcset_domain中添加域名，并且同步到YCZHIFU,易彩是apache
 博友和博友无线的支付服务器用的nginx，
+易彩支付域名是同步apache配置文件到yczf服务器的apache中
+博友和博友无线支付域名是同步nginx配置文件到bybywxzhifu服务器中的nginx中，
+然后就fikker，dsn，数据库私库getsetdomain
 
 
                                               开通站点步骤流程
