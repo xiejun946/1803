@@ -83,3 +83,11 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 私彩没开奖结算都是运行一下php就可以了
              
 苹果app用的是h5的域名，安卓用的是前台接口
+
+
+修改个别彩种
+需要修改私库中gcset表中，显示在后台的gid，检查彩种库是否有，
+                        开通的彩种，检查添加
+                        显示在首页的彩种
+                        最后清理redis
+
