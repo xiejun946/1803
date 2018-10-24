@@ -23,6 +23,7 @@ print (a.strip())
                                                      数字类型
 注意，在3/2在python2中为1 ，，在python3中为1.5 
       在3中，for循环缩进2格就行了，在2中2，4格都行
+      在3中，for，if循环判断都用4格缩进和json一样，比较好判断
 数值运算  + - * / 乘方** %
 print ((3+2)*4)          --》20
 print ((3+2*4)           --》11
@@ -41,6 +42,9 @@ print ("hello python people!")
  L.pop()                                    min(L)
  L.reverse() 永久倒序显示不排列               max(L)
  L.remove()                                 sum(L)
+ a.lower()
+ a.upper()
+ a.title()
  
  
  列表解析
