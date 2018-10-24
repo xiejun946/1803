@@ -7,7 +7,8 @@
 3修改dsn，注意是json格式，因为dsn是hash表类型
 
 
-支付域名和站点域名的区别是需要对应私库数据库gcset_domain中添加域名，并且同步到YCZHIFU或者
+支付域名和站点域名的区别是需要对应私库数据库gcset_domain中添加域名，并且同步到YCZHIFU,易彩是apache
+博友和博友无线的支付服务器用的nginx，
 
 
                                               开通站点步骤流程
