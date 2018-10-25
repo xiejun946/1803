@@ -10,3 +10,22 @@ mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkW
 网站打不开首先ping一下，如果可以ping通，代表dns解析以及fikker正常，如果ping不通，可能是fikker出问题或者解析出问题
 如果网站打开报错400.显示fikker，即主控没有添加
 网站首先检查前台，fikker，dns解析，一般后台不会出问题。
+
+
+
+2018-10-24
+   a09站点下注不成功
+经过分析，前台下注，数据库成功记录，redis不显示，查找日志服务器，redis日志，显示验证失败，结果为逻辑错误，无法解决
+
+
+
+2018-10-15左右
+所有平台站点无法开奖结算
+查询官方开奖正常，结果为我们开奖接口问题，最后挂维护，手动开奖
+
+
+ycw919.com域名本地host打开OK，直接打开无效，经过解析查询，A记录出现很多IP，ping 不显示w50.googleecdn.com,
+该域名可能被污染，无法使用，结果为换一条域名
+
+
+
