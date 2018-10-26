@@ -1,3 +1,4 @@
 ls -lc filename         列出文件的 ctime     chmod时间
 ls -lu filename         列出文件的 atime      access时间
 ls -l filename          列出文件的 mtime     修改时间
+git  reflog  --relative-date  显示git操作记录和时间
