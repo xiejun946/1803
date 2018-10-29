@@ -101,3 +101,9 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 4、在博友公库redis 第8库找到 dsn_iso 添加相对应的 key 和value 值，sn 对应的就是 博友公库 gc_ios_version 表的 sn 属性值，
 5、去 狗爹、米帮、dns盾、聚名网找到送审域名并解析，主机头是香瓜或二师兄提供
 
+
+
+                 开通开源视讯
+ 1在公库的gc_sx库的gc_set表中，添加一条开元视讯记录，根据id添加
+ 2在对应站点的私库中添加开元的视讯的彩种，即可
+              
