@@ -29,3 +29,8 @@ ycw919.com域名本地host打开OK，直接打开无效，经过解析查询，A
 
 
 前后台开奖号码不一致，查询数据库核对以后更改redis公库。gcopen中对应的开奖号码就行了
+
+
+php /home/git/gcapi/user/index.php syssettlement index a28 s_bj28 917829
+结算无反应
+原因1，数据库是否有数据，2数据库status状态码是否为2，只有status显示为2 ，结算程序才能正常结算
