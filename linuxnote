@@ -2,3 +2,21 @@ ls -lc filename         列出文件的 ctime     chmod时间
 ls -lu filename         列出文件的 atime      access时间
 ls -l filename          列出文件的 mtime     修改时间
 git  reflog  --relative-date  显示git操作记录和时间
+https://opsx.alibaba.com/mirror
+epel
+##epel 配置方法
+
+###1、备份(如有配置其他epel源)
+
+mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup
+mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
+2、下载新repo 到/etc/yum.repos.d/
+epel(RHEL 7)
+
+	wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+epel(RHEL 6)
+
+	wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo
+epel(RHEL 5)
+
+	wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo
