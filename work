@@ -107,3 +107,15 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
  1在公库的gc_sx库的gc_set表中，添加一条开元视讯记录，根据id添加
  2在对应站点的私库中添加开元的视讯的彩种，即可
               
+
+
+
+
+应对dns劫持的解决方式
+1，使用长域名
+2 更换dns服务商
+3更换域名
+
+
+
+
