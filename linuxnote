@@ -2,6 +2,8 @@ ls -lc filename         列出文件的 ctime     chmod时间
 ls -lu filename         列出文件的 atime      access时间
 ls -l filename          列出文件的 mtime     修改时间
 git  reflog  --relative-date  显示git操作记录和时间
+git reset --hard HEAD^        回退到上个版本
+$ git reset --hard commit_id    退到/进到 指定commit_id
 https://opsx.alibaba.com/mirror
 epel
 ##epel 配置方法
