@@ -143,6 +143,39 @@ setattr(对象，属性)
 setattr(saizi1,'sides',5)
 getattr(saizi1,'sides')
 delattr(saizi1,'sides')
+hasattr(saizi1,'sides')判断属性是否存在于实例，返回True或者Flase
+
+hex（x ）
+将整数转换为十六进制字符串。结果是一个有效的Python表达式。如果x不是Python int对象，则必须定义一个__index__()返回整数的 方法。
+
+注意 要获取float的十六进制字符串表示形式，请使用该 float.hex()方法。
+
+
+print(hash(1))     返回haxi值
+print(id('ss'))   python生成数据在内存中的唯一id
+print(hex(2))          转成16进制
+
+input（[ 提示] ）
+如果存在prompt参数，则将其写入标准输出而不带尾随换行符。然后该函数从输入中读取一行，将其转换为字符串（剥离尾部换行符），然后返回该行。读取EOF时，EOFError会引发。例：
+
+>>> s  =  输入（' - >' ）
+- > Monty Python的飞行马戏团
+>>> s 
+“Monty Python's Flying Circus”
+
+print(isinstance(3,int))  判断数据类型
+
+
+print(issubclass(ElectricCar,Car)) 判断前一个类是否后一个类的子类，
+print(issubclass(ElectricCar,(Car,Battery)))
+
+
+
+
+
+
+
+
 
 
 
