@@ -20,3 +20,6 @@ epel(RHEL 6)
 epel(RHEL 5)
 
 	wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo
+
+
+rz -be 可以解决上传中断的问题，如果单独用rz ，文件比较大的时候回出现失败
