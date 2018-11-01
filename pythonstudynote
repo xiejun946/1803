@@ -169,10 +169,12 @@ print(isinstance(3,int))  判断数据类型
 print(issubclass(ElectricCar,Car)) 判断前一个类是否后一个类的子类，
 print(issubclass(ElectricCar,(Car,Battery)))
 
+print(locals())  返回本地符号表字典
 
+map（功能，可迭代，...... ）
+返回一个迭代器，它将函数应用于每个iterable项，从而产生结果。如果传递了其他可迭代参数，则 函数必须采用那么多参数，并且并行地应用于所有迭代的项。使用多个iterables时，迭代器会在最短的iterable耗尽时停止。对于函数输入已经排列成参数元组的情况，请参阅itertools.starmap()。
 
-
-
+print(max(3,4,5))   可以使多个参数，也可以是单个元组，列表
 
 
 
