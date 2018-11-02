@@ -182,7 +182,14 @@ print(object())   返回一个无特征对象
 
 
 x=open('1.txt')  文件必须和模块放在同一级目录下
-print(x.read())   
+print(x.read())
+file_path=r'C:\python_work\text_files\pi_digits.txt'   使用绝对路劲，
+with open(file_path) as file_object:
+	contents=file_object.read()
+	print(contents.rstrip())
+
+
+
 
 print(math.pow(2,3))   2**3 幂运算
 print(property(ligang.num))  返回属性在内存中的属性
