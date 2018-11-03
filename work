@@ -106,7 +106,7 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
                  开通开源视讯
  1在公库的gc_sx库的gc_set表中，添加一条开元视讯记录，根据id添加
  2在对应站点的私库中添加开元的视讯的彩种，即可
-              
+开源视讯维护只能删除数据库对应彩种，清除redis解决              
 
 
 
