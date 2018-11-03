@@ -49,6 +49,7 @@ print ("hello python people!")
  a.items()将dict的kv以列表显示
  a.keys()将dict的k取出列表
  a.values()将dict的v取出列表
+ a.split() 将每一个字符串拆分到列表中
  
  
  
