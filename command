@@ -18,3 +18,12 @@
 cd /home/git/yicai/gcapi
 sudo php generate_dsn_file.php
 ansible websrv -m copy -s -a 'src=/home/git/yicai/gcapi/config_dsn dest=/home/git/yicai/gcapi mode=777'
+
+
+
+
+代理注册页面添加域名
+有3台服务器，
+2台admin
+1台ycansible
+ansible admin -u centos -s -m copy -a "src=/usr/local/apache/conf/vhost2/gcregister.conf dest=/usr/local/apache/conf/vhost2"
