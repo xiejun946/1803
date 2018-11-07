@@ -20,6 +20,7 @@
                    支付域名例如w57.yczhifu.com不用添加，因为有泛解析，都是一个借口
                    后台域名yicaiadmin.com额外添加一条cname，主机名取一个好记的名字即可
  第三步，也是最重要的数据库备份，还原以temple为模块，redis备份还原，根据情况是新建数据库还是和其他站点一起公用私库，公库不用管，程序里面会自动调用
+        数据需需要授权redis中使用的账号密码到库中GRANT ALL ON w66.* TO yicai@"%" IDENTIFIED BY "keplnv20wd8b3R"
  第四步  进入博友或者易彩的ansbile主机，添加站点域名到apache和nginx配置文件，注意，域名是h5还是pc的，配置文件不一样。修改配置文件后，同步到
          apache和nginx群组web服务器，然后重新加载即可，这里可以利用history查看之前的命令
  第五步进入redis或者一键dsn网站修改对应的dsn，添加例如w57
