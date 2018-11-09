@@ -27,3 +27,8 @@ epel(RHEL 5)
 rz -be 可以解决上传中断的问题，如果单独用rz ，文件比较大的时候回出现失败
 泛解析和特定解析的优先级问题
 有限匹配特定解析，如特定解析匹配不成功，再匹配泛解析
+
+
+
+awk求和公式
+awk 'BEGIN{total=0}{total+=$2}END{print total}' 1.txt
