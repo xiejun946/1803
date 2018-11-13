@@ -32,3 +32,9 @@ rz -be 可以解决上传中断的问题，如果单独用rz ，文件比较大�
 
 awk求和公式
 awk 'BEGIN{total=0}{total+=$2}END{print total}' 1.txt
+
+
+redis 查询内存cpu
+info 
+指定内存
+info Memory
