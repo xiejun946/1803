@@ -208,8 +208,7 @@ set（[ 可迭代] ）
 返回一个新集合，可选择使用可迭代的元素。设置类型在Set Types - set，frozenset中描述。
 
 
-
-
+python3 -m pip install pygame
 
 
 
