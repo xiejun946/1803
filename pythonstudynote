@@ -210,6 +210,17 @@ set（[ 可迭代] ）
 
 python3 -m pip install pygame
 
+python调用shell命令
+
+
+python调用浏览器
+
+
+
+python调用数据库
+
+
+python调用接口
 
 
 
