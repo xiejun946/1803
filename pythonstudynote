@@ -224,7 +224,20 @@ python调用接口
 
 
 
+                                   django框架
+利用python3 -m venv 11_env
+新建一个11_env的虚拟环境
+在虚拟环境中安装django1.11
+遇到一个问题
+python3.71和django1.11的兼容性问题，
+1.11只需要python3.6
+这时候需要退回python版本，或者升级django，查看官方文档，
+django1.1只兼容到2.7和3.6
+django2.1兼容3.71
 
+
+1.11升级到2.1
+pip install --upgrade Django==2.1
 
 
 
