@@ -239,6 +239,7 @@ django2.1兼容3.71
 1.11升级到2.1
 pip install --upgrade Django==2.1
 
+django模块html中书写缩进用2个html，否则报错提示会有问题，提示是否注册标签
 
 
 
