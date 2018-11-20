@@ -253,4 +253,22 @@ django模块html中书写缩进用2个html，否则报错提示会有问题，�
 3上招聘网上找找spriingboot之类，多学习几个框架
 
 
+
+django 错误
+django按照packages/projectname/templates/appname/template_name.html 这个目录来寻找html模板
+所以templates一定不能错，出错以后修改正确后ctrl+c结束django服务器，再开启就可以了
+
+<form action="{% url 'users:login' %}" method='POST'>
+语法错误，href或者action中     users的冒号之后一定不能有空格，否则会报错不是被模板标签
+
+缩进错误
+制表符和空格之间不能连用否则会报错缩进不匹配
+
+
+
+
+
+
+
+
  
