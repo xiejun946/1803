@@ -264,9 +264,17 @@ django按照packages/projectname/templates/appname/template_name.html 这个目�
 缩进错误
 制表符和空格之间不能连用否则会报错缩进不匹配
 
-
-
-
+DJANGo 调用mysql数据库
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',        #数据库名字
+        'USER': 'root',          #账号
+        'PASSWORD': '123456',      #密码
+        'HOST': '127.0.0.1',    #IP
+        'PORT': '3306',                   #端口
+    }
+}
 
 
 
