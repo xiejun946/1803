@@ -126,4 +126,6 @@ mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94
 a01是博有无线测试
 w01是易彩测试
 
+网站卡首先是数据库，然后观察负载，然后查看fikker
+不是所有站点，排除负载，检查数据库
 
