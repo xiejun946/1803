@@ -44,9 +44,9 @@ print ("hello python people!")
  L.reverse() 永久倒序显示不排列               max(L)
  L.remove()                                 sum(L)
  a.lower()                                  set()去除列表中重复值
- a.upper()
+ a.upper()                     
  a.title()
- a.items()将dict的kv以列表显示
+ a.items()将dict的kv以列表显示                 enumerate()给列表添加索引，形成又索引值组成的字典      
  a.keys()将dict的k取出列表
  a.values()将dict的v取出列表
  a.split() 将每一个字符串拆分到列表中
