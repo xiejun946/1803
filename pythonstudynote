@@ -301,3 +301,50 @@ ssl._create_default_https_context = ssl._create_unverified_context
 json_url='http://raw.githubusercontent.com/muxuezi/btc/master/btc_close_2017.json'
 response=urlopen(json_url)
 
+
+json.loads与dumps对应
+json.dumps是将一个Python数据类型列表进行json格式的编码解析，
+
+示例如下：
+
+>>> import json #导入python 中的json模块
+>>> l = [‘iplaypython’,[1,2,3], {‘name’:’xiaoming’}] #创建一个l列表
+>>> encoded_json = json.dumps(l) # 将l列表，进行json格式化编码
+>>> print repr(l)
+>>> print encoded_json #输出结果
+
+这样我们就将一个list列表对象，进行了json格式的编码转换。
+
+ 
+
+解码python json格式，可以用这个模块的json.loads()函数的解析方法，
+示例如下：
+
+>>> decode_json = json.loads(encoded_json)
+>>> print type(decode_json) #查看一下解码后的对象类型
+>>> print decode_json #输出结果
+将python json格式解码成Python数据风格
+
+ 
+
+json.dump和json.dumps很不同，json.dump主要用来json文件读写，和json.load函数配合使用。
+
+json.dump(x,f)，x是对象，f是一个文件对象，这个方法可以将json字符串写入到文本文件中。
+
+import json
+
+data = [{"a":"aaa","b":"bbb","c":[1,2,3,(4,5,6)]},33,'tantengvip',True]
+data2 = json.dumps(data)
+print(data2)
+f = open('./tt.txt','a')
+json.dump(data2,f)
+
+这样就生成了一个tt.txt文件，保存了json格式的数据。dumps还提供pritty print，格式化的输出。
+ 
+json.load加载json格式文件   下面是从txt文件中读取了json数据。
+f = open('./tt.txt','r')
+hehe = json.load(f)
+print(hehe)
+
+
+
