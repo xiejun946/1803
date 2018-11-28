@@ -277,6 +277,27 @@ DATABASES = {
 }
 
 
+当你爬取一个 https 的时候会验证一次 SSL 证书 
+
+当目标使用的是自签名的证书时就会报出一个如上错误
+
+解决办法一:使用ssl创建未经验证的上下文，在urlopen中传入上下文参数
+
+import ssl
+
+context = ssl._create_unverified_context()
+
+data= urllib.request.urlopen(url_string,context=context).read()
+
+解决方法二:全局取消证书验证,方法中不用加入context参数
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
+即可正常进行爬取
 
 
- 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+json_url='http://raw.githubusercontent.com/muxuezi/btc/master/btc_close_2017.json'
+response=urlopen(json_url)
+
