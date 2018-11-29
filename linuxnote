@@ -57,5 +57,8 @@ set softtabstop=4
 反墙服务器，
 国内购买一台fikker服务器，做跳转到真实国外域名
 
-
-
+git checkout -b 远程分支以后
+ansible bybywxzf -m shell -a "cd /home/git/bywx/gcapi;sudo git branch --set-upstream-to=origin/master remotes/origin/master"
+需要
+需要关联
+需要关联远程分支 这样才能不用指定 Git pull之类命令后的分支
