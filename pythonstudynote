@@ -346,5 +346,27 @@ f = open('./tt.txt','r')
 hehe = json.load(f)
 print(hehe)
 
+	
+#可视化
+my_style=LS('#336676',base_style=LCS)
+my_config=pygal.Config()
+my_config.x_label_rotation=45
+my_config.show_lengend=False
+my_config.title_font_size=24
+my_config.label_font_size=14
+my_config.major_label_size=18
+my_config.truncate_label=15
+my_config.show_y_guides=False
+my_config.width=1000
 
+
+
+chart=pygal.Bar(my_config,style=my_style)
+chart.title='report for each api'
+chart.x_labels=submission_xx
+chart.add('',api_comments)
+chart.render_to_file('apis.svg')	
+
+
+pygal中渲染，x轴必须不是数字，y轴自定义字典，必须第一个值为value，写死了
 
