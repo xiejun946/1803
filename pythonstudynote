@@ -369,4 +369,4 @@ chart.render_to_file('apis.svg')
 
 
 pygal中渲染，x轴必须不是数字，y轴自定义字典，必须第一个值为value，写死了
-
+不然y轴无法读取数据
