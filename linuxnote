@@ -62,3 +62,10 @@ ansible bybywxzf -m shell -a "cd /home/git/bywx/gcapi;sudo git branch --set-upst
 需要
 需要关联
 需要关联远程分支 这样才能不用指定 Git pull之类命令后的分支
+
+
+[ctrl]+z 將前台任务丟到后台中暂停
+jobs 查看后台的工作状态
+fg %jobnumber 将后台的任务拿到前台来处理
+bg %jobnumber 将任务放到后台中去处理
+kill 管理后台的任务
