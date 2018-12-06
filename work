@@ -70,13 +70,44 @@ ws           ltstestws.aitgks.com         A记录   解析到源ip
 3数据库备份还原，遇到问题，用sqlyog软件备份会自动添加use 源数据库，解决方法为保证数据正确性，用mysqldump命令行备份还原
 mysqldump -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 --single-lts6 >lts6_bak.sql
 mysql -hxjptestrds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com -uroot -pkWln94we2P3R3 lts11<lts6_bak.sql
+3进入测试站redis公库添加dsn
 
-4 进入云主机上备份还原好的服务器中，进入/usr/local/apache/conf/vhost/chat.conf中修改聊天室域名
+4 进入亚马逊用ltsfcw最新的聊天室模板还原云主机出来，进入/usr/local/apache/conf/vhost/chat.conf中修改聊天室域名
 分别修改前台，后台，接口配置文件，后台管理配置文件
-进入/home/git 用grep -r -o 递归搜索websocket配置文件，和前台 并且修改
-重启apache
-修改redis.php，定义连接的数据库
-5修改测试站redis，聊天室用的是测试站的redis，
+进入/home/git 用grep -r -o 递归搜索tgks360，因为用fcw的模板
+ltsgc/config.php:tgks360
+ltsgc/config.php:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/admin/api/logs/ltsfcadmin.tgks360.com_2018.log:tgks360
+lts_api/sys/gc/config/config_games.php:tgks360
+lts_api/sys/gc/config/config_games.php:tgks360
+lts_api/user/api/controllers/user/User.php:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+ltsgc/config.php/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+lts_api/user/api/logs/w05_2018.log:tgks360
+gcregister/k-chat/dist/static/js/app.e486efc0fb78a30565da.js:tgks360
+修改lts_ws/Application/lts/config/redis.php修改数据库对应的私库
+进入ltsgc/config.php修改前后台接口域名
+进入lts_api/sys/gc/config/config_games.php 定义接口对应websocket
+进入lts_api/user/api/controllers/user/User.php 定义ws
+进入gcregister/k-chat/dist/static/js/app.e486efc0fb78a30565da.js 定义pc端的数据库名称和前台接口
+启动websocket
+sudo php lts_ws/start.php start -d
+sudo lnmp restart httpd 
+
+
 
 数据库采用不分库分表，手动分库原则，流量大的库单独放在一台实例中，优点简单方便，减小单台实例的读写负载
 开奖结算分为官彩和私彩，
