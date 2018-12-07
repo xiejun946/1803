@@ -61,6 +61,14 @@ ansible bybywxzf -m shell -a "cd /home/git/bywx/gcapi;sudo git branch --set-upst
 需要
 需要关联
 需要关联远程分支 这样才能不用指定 Git pull之类命令后的分支
+sudo git merge dev
+将dev 分支合并到当前分支
+git checkout dev
+切换分支到dev分支
+如果第一次切换
+git checkout -b dev 创建并且切换分支
+分支切换合并只是改变指针的位置
+合并分支之后可以删除之前的dev分支，这样就只有一个分支了
 
 
 [ctrl]+z 將前台任务丟到后台中暂停
