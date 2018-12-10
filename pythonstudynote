@@ -370,3 +370,14 @@ chart.render_to_file('apis.svg')
 
 pygal中渲染，x轴必须不是数字，y轴自定义字典，必须第一个值为value，写死了
 不然y轴无法读取数据
+
+
+
+requests模块
+r=requests.get('https://api.github.com/events')
+print(r.text[:100])  #文本模式
+print(r.encoding)
+print(r.content[:100])  #二进制模式
+
+
+
