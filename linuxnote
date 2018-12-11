@@ -84,3 +84,8 @@ WebSocket使得客户端和服务器之间的数据交换变得更加简单，�
 
 
 
+ansible管理云主机
+添加秘钥的时候
+/home/centos/.ssh/authorized_keys
+将管理主机的这个文件复制到被管理主机上，就可以正常管理了
+
