@@ -130,11 +130,18 @@ A机器ssh登录B机器无需输入密码；
 
 3、这样生成了一对密钥，存放在用户目录的~/.ssh下。 
 将公钥考到对方机器的用户目录下，并将其复制到~/.ssh/authorized_keys中（操作命令：#cat id_dsa.pub >> ~/.ssh/authorized_keys）
---------------------- 
-作者：随波足流 
-来源：CSDN 
-原文：https://blog.csdn.net/chenaini119/article/details/79391041 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+
+epel
+安装epel的rpm安装包之后会自动生成epel的yum源，epel是第三项扩展yum源
+
+
+
+
+
+
+
 
 
 
