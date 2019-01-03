@@ -136,9 +136,24 @@ A机器ssh登录B机器无需输入密码；
 epel
 安装epel的rpm安装包之后会自动生成epel的yum源，epel是第三项扩展yum源
 
+salt
+这些模块是python写成的文件，里面会有好多函数，如cmd.run，当我们执行salt '*' cmd.run 'uptime'的时候，master下发任务匹配到的minion上去，minion执行模块函数，并返回结果。master监听4505和4506端口，4505对应的是ZMQ的PUB system，用来发送消息，4506对应的是REP system是来接受消息的。
 
+具体步骤如下
 
+Salt stack的Master与Minion之间通过ZeroMq进行消息传递，使用了ZeroMq的发布-订阅模式，连接方式包括tcp，ipc
 
+salt命令，将cmd.run ls命令从salt.client.LocalClient.cmd_cli发布到master，获取一个Jodid，根据jobid获取命令执行结果。
+
+master接收到命令后，将要执行的命令发送给客户端minion。
+
+minion从消息总线上接收到要处理的命令，交给minion._handle_aes处理
+
+minion._handle_aes发起一个本地线程调用cmdmod执行ls命令。线程执行完ls后，调用minion._return_pub方法，将执行结果通过消息总线返回给master
+
+master接收到客户端返回的结果，调用master._handle_aes方法，将结果写的文件中
+
+salt.client.LocalClient.cmd_cli通过轮询获取Job执行结果，将结果输出到终端
 
 
 
