@@ -157,6 +157,3 @@ salt.client.LocalClient.cmd_cli通过轮询获取Job执行结果，将结果输�
 
 
 
-
-
-
