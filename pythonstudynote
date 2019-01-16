@@ -374,9 +374,28 @@ pygal中渲染，x轴必须不是数字，y轴自定义字典，必须第一个�
 
 
 requests模块
-r=requests.get('https://api.github.com/events')
+#get方法传递参数
+r=requests.get('https://api.github.com/events/get',params=dataload)
+#post方法传递数据
+r = requests.post('http://httpbin.org/post', data=payload)
+r=requests.post(url,json=payload)  #非编码数据用json自动编码
+files = {'file': open('report.xls', 'rb')}    #二进制读取，多部分编码
+r = requests.post(url, files=files)
+#禁用重定向发起请求
+r=requests.get('http://github.com',allow_redirects=False)
+参数
+allow_redirects=False
+files=files
+json=payload
+params=dataload
+data=payload
+timeout=0.001
+timeout 仅对连接过程有效，与响应体的下载无关。 timeout 并不是整个下载响应的时间限制，而是如果服务器在 timeout 秒内没有应答，将会引发一个异常
+auth=('user', 'pass')
+
+
 print(r.text[:100])  #文本模式
-print(r.encoding)
+print(r.encoding)   #答应编码
 print(r.content[:100])  #二进制模式
 
 
