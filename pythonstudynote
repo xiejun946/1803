@@ -372,6 +372,18 @@ pygal中渲染，x轴必须不是数字，y轴自定义字典，必须第一个�
 不然y轴无法读取数据
 
 
+def fab(max):
+    n,a,b=0,0,1
+    while n < max:
+        yield b
+        a,b=b,a+b
+        n=n+1
+
+for n in fab(5):
+    print n
+带yield的函数是一个可迭代的生成器，返回函数每次生成的值，类似print 放入列表的同时再内存中内次只占一个值 
+
+
 
 requests模块
 #get方法传递参数
@@ -383,6 +395,16 @@ files = {'file': open('report.xls', 'rb')}    #二进制读取，多部分编码
 r = requests.post(url, files=files)
 #禁用重定向发起请求
 r=requests.get('http://github.com',allow_redirects=False)
+#主机证书，验证服务器，域名
+requests.get('https://github.com', verify='/path/to/certfile'）
+#客户端证书，验证用户身份
+requests.get('https://kennethreitz.org', cert=('/path/client.cert', '/path/client.key'))
+#请求参数可以定义在会话中，会话可以胯请求保存参数
+s = requests.Session()
+s.cert = '/path/client.cert'
+with requests.get('http://httpbin.org/get', stream=True) as r:
+同一个session内共用一个连接池，直到数据取完，调用r.centent
+
 参数
 allow_redirects=False
 files=files
@@ -392,11 +414,13 @@ data=payload
 timeout=0.001
 timeout 仅对连接过程有效，与响应体的下载无关。 timeout 并不是整个下载响应的时间限制，而是如果服务器在 timeout 秒内没有应答，将会引发一个异常
 auth=('user', 'pass')
-
-
+verify='/path/to/certfile'
+stream=True # 默认情况，发出请求，响应立刻被下载，r.headers和r.content，使用该参数保证只下载r.headers
 print(r.text[:100])  #文本模式
 print(r.encoding)   #答应编码
 print(r.content[:100])  #二进制模式
-
+print r.raw  #原始请求内容
+r.headers  #响应头
+r.request.headers #请求头
 
 
