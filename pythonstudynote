@@ -416,6 +416,13 @@ timeout 仅对连接过程有效，与响应体的下载无关。 timeout 并不
 auth=('user', 'pass')
 verify='/path/to/certfile'
 stream=True # 默认情况，发出请求，响应立刻被下载，r.headers和r.content，使用该参数保证只下载r.headers
+proxies = {
+    "http": "http://user:pass@10.10.1.10:3128/",
+}    #设置代理，在请求中添加参数，当然可以设置在Session()中
+也可以设置在变量中
+
+
+    
 print(r.text[:100])  #文本模式
 print(r.encoding)   #答应编码
 print(r.content[:100])  #二进制模式
