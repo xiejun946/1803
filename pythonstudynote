@@ -430,4 +430,7 @@ print r.raw  #原始请求内容
 r.headers  #响应头
 r.request.headers #请求头
 
+pip install django-simple-captcha
+django自带的图形验证码功能
+
 
