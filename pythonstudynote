@@ -432,5 +432,44 @@ r.request.headers #请求头
 
 pip install django-simple-captcha
 django自带的图形验证码功能
+django中session的使用方法，session是字典形式保存的
+         keys()
+        items()
+        setdefault()
+        clear()
 
 
+        # 它还有下面的方法：
+        flush()
+            # 删除当前的会话数据和会话cookie。经常用在用户退出后，删除会话。
+
+        set_test_cookie()
+            # 设置一个测试cookie，用于探测用户浏览器是否支持cookies。由于cookie的工作机制，你只有在下次用户请求的时候才可以测试。
+        test_cookie_worked()
+            # 返回True或者False，取决于用户的浏览器是否接受测试cookie。你必须在之前先调用set_test_cookie()方法。
+        delete_test_cookie()
+            # 删除测试cookie。
+        set_expiry(value)
+            # 设置cookie的有效期。可以传递不同类型的参数值：
+        • 如果值是一个整数，session将在对应的秒数后失效。例如request.session.set_expiry(300) 将在300秒后失效.
+        • 如果值是一个datetime或者timedelta对象, 会话将在指定的日期失效
+        • 如果为0，在用户关闭浏览器后失效
+        • 如果为None，则将使用全局会话失效策略
+        失效时间从上一次会话被修改的时刻开始计时。
+
+        get_expiry_age()
+            # 返回多少秒后失效的秒数。对于没有自定义失效时间的会话，这等同于SESSION_COOKIE_AGE.
+            # 这个方法接受2个可选的关键字参数
+        • modification:会话的最后修改时间（datetime对象）。默认是当前时间。
+        •expiry: 会话失效信息，可以是datetime对象，也可以是int或None
+
+        get_expiry_date()
+            # 和上面的方法类似，只是返回的是日期
+
+        get_expire_at_browser_close()
+            # 返回True或False，根据用户会话是否是浏览器关闭后就结束。
+
+        clear_expired()
+            # 删除已经失效的会话数据。
+        cycle_key()
+            # 创建一个新的会话秘钥用于保持当前的会话数据。django.contrib.auth.login() 会调用这个方法
