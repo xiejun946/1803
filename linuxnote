@@ -156,4 +156,5 @@ master接收到客户端返回的结果，调用master._handle_aes方法，将�
 salt.client.LocalClient.cmd_cli通过轮询获取Job执行结果，将结果输出到终端
 
 
+http403报错，有可能是域名备案问题，大陆的服务器web服务需要备案，香港的可以不用备案
 
