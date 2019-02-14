@@ -158,3 +158,28 @@ salt.client.LocalClient.cmd_cli通过轮询获取Job执行结果，将结果输�
 
 http403报错，有可能是域名备案问题，大陆的服务器web服务需要备案，香港的可以不用备案
 
+
+vmware网卡配置
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+GATEWAY=192.168.0.1
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=f1811dd3-3d19-432f-b8cf-4c588077b2a4
+DEVICE=ens33
+ONBOOT=yes
+
+
+配置以后重启network
+
+
+
+
