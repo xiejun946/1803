@@ -1,24 +1,7 @@
 import pymysql.cursors
 #import datetime
-domains=['xjpyc01rds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'xjpyc02rds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'xjpyc03rds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'xipyc04rds.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds05.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds06.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds07.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds08.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds09.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds10.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds11.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds12.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds13.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds14.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds15.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds16.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds17.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds18.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com',
-'yicairds19.ciasiaddtzq2.ap-southeast-1.rds.amazonaws.com'
+domains=[kj;lk
+
 ]
 
 insert_table_sql="""
