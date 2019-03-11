@@ -220,5 +220,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
 
 
-
+使用yum安装的tomcat，其安装目录在/etc下，webapps在/var/lib/tomcat/webapps
+可以直接拖war包或者新建目录使用静态文件
 
