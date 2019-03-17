@@ -223,3 +223,16 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 使用yum安装的tomcat，其安装目录在/etc下，webapps在/var/lib/tomcat/webapps
 可以直接拖war包或者新建目录使用静态文件
 
+
+
+
+jenkins
+/var/cache/jenkins  缓存目录
+/var/lib/jenkins 家目录
+/var/log/jenkins 日志目录
+ 3个目录都需要给deploy权限
+
+
+
+
+
