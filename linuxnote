@@ -234,5 +234,15 @@ jenkins
 
 
 
+openssl制作本地证书
+
+yum -y install openssh-server openssh-clients
+mdkik -p /etc/gitlab/ssl
+openssl genrsa -out "/etc/gitlab/ssl/gitlab.example.com.key" 2048
+openssl req -new -key "/etc/gitlab/ssl/gitlab.example.com.key" -out "/etc/gitlab/ssl/gitlab.example.com.csr"
+openssl x509 -req -days 365 -in "/etc/gitlab/ssl/gitlab.example.com.csr" -signkey "/etc/gitlab/ssl/gitlab.example.com.key" -out "/etc/gitlab/ssl/gitlab.example.com.crt"
+
+
+
 
 
