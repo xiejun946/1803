@@ -311,4 +311,48 @@ pipeline {
 
 
 
+判卷文件标识符
+
+
+    -e  文件是否存在   test -e filename
+    -f  文件是否存在，且为文件 file
+    -d  文件是否存在，且为目录 directory
+    -b  文件是否存在，且为block device设备
+    -c  文件是否存在，且为character device设备
+    -S  文件是否存在，且为Socket文件
+    -p  文件是否存在，且为FIFO(pipe)文件
+    -L  文件是否存在，且为连接文件
+
+检查文件权限
+    -r  文件是否存在，且可读权限
+    -w  文件是否存在，且可写权限
+    -x  文件是否存在，且可执行权限
+    -u  文件是否存在，且具有SUID属性
+    -g  文件是否存在，且具有SGID属性
+    -k  文件是否存在，且具有 Sticky bit 属性
+    -s  文件是否存在，且为 非空白文件
+
+两个文件比较
+    -nt  newer than 判断file1是否比file2新  
+         test file1 -nt file2    根据最近修改时间来判断
+    -ot  older than 判断file1是否比file2旧
+    -ef  判断是否为同一文件，可用在判断hard link上，判定两个文件是否指向同一个inode 
+
+两个整数的判断
+    -eq  equal 相等，  test n1 -eq n2
+    -ne  not equal 不相等
+    -gt  greater than 大于
+    -lt  less than 小于
+    -ge  greater than or equal 大于等于
+    -le  less than or equal 小于等于
+
+
+
+
+
+
+
+
+
+
 
