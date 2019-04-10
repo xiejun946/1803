@@ -134,6 +134,16 @@ A机器ssh登录B机器无需输入密码；
 给所有主机部署密钥,、/etc/ansible中要提前定义主机，如果失败加上密码，并且cd到/root/.ssh中 
 ansible all -m authorized_key -a "user=root exclusive=true manage_dir=true key='$(< ~/.ssh/id_rsa.pub)'" -k
 
+ansible-playbook 
+
+- hosts: "testservers"        主机组  
+  remote_user: root
+  tasks:
+    - ping:   模块
+
+ansible-playbook -i inventory/testenv  ./deploy.yml
+指定环境变量文件
+
 
 epel
 安装epel的rpm安装包之后会自动生成epel的yum源，epel是第三项扩展yum源
