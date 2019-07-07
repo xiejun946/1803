@@ -1,0 +1,71 @@
+C:\app\zhangsan
+C:\app\zhangsan\product\11.2.0\dbhome_1
+sid mldn
+高级安装
+字符集设置为utf-8
+并且创建一个实例数据库用于练习
+所有用户密码设置为oracleadmin
+安装完成之后使用口令管理
+sys/change_on_install 超级管理员
+system/manger 普通管理员大数据用户
+scott/tiger   普通用户
+sh/sh 
+
+conn sys/change_on_install as sysdba  连接sys的时候必须作为超级管理员
+OracleServiceMLDN  实例服务
+OracleOraDb11g_home1TNSListener 监听服务
+
+
+select * from scott.emp;用户名.表名
+col ename for A10 设置单列ename显示格式化为10字符长度
+首先执行form语句，再执行select语句
+select distinct * from emp;     distinct消除重复
+select empno,ename,sal*12 as money from emp; 用as当作别名
+select empno,ename,sal*15+(200+100+100)*12+200*5 as income from emp;
+
+ select empno||ename from emp;而列合并为一列显示
+select '雇员编号: ' || empno || ', 姓名 '|| ename || ' 收入 :'||sal info from emp; 格式化多列为单列
+并且添加常量  
+info 作为表别名,不需要单引号
+
+<,  > ,>= ,<=,=,<>,!=最后二个是不等于
+AND,OR,NOT
+BETWEEN...最小.AND  最大  包含等于的情况  可以提升查询性能，只用匹配一次条件sele
+IN NOT IN
+IS NULL ,IS NOT NULL
+LIKE   _单字符   % 
+select * from emp where ename like '_A%';
+select * from emp where ename like 'A%';
+select * from emp where HIREDATE between '01-1月-81' and '31-12月-81';
+
+
+select * from emp where  empno  not in (7369,7566,7788,null);
+not in 中不能有空
+
+如果进行了查询就变成了查询所有
+select * from emp
+这是oracle
+
+排序
+order by 字段 ASC/DESC 在select查询以后，所以可以使用select的别名
+只有orderby可以调用select定义的别名
+
+前者相同才按照后者排序
+select * from emp  order by sal desc,hiredate;
+
+
+select 子句落后于where子句，所以select子句中定义的别名where中无法使用
+
+SELECT empno,ename,sal*12  income from emp order by income;
+
+SELECT empno,ename,sal*12 as income from emp order by income;
+select 别名关键词as可以省略
+
+
+select * from emp where (job='MANAGER' and deptno=10) or (job='CLERK' and deptno=20);
+
+select * from emp where
+ename like '%A%' order by sal desc,hiredate,job;
+
+
+
