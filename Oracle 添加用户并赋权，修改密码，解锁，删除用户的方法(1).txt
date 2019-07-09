@@ -1,75 +1,142 @@
-Ìí¼ÓÓÃ»§£¨Ëæ×ÅÓÃ»§µÄ´´½¨£¬×Ô¶¯²úÉúÓëÓÃ»§Í¬ÃûµÄschema£© 
+æ·»åŠ ç”¨æˆ·ï¼ˆéšç€ç”¨æˆ·çš„åˆ›å»ºï¼Œè‡ªåŠ¨äº§ç”Ÿä¸ç”¨æˆ·åŒåçš„schemaï¼‰ 
 CREATE USER "TESTER" PROFILE "DEFAULT" IDENTIFIED BY "TESTER" DEFAULT TABLESPACE "TESTDATA" TEMPORARY TABLESPACE "TESTTEMP" ACCOUNT UNLOCK; 
-¸³È¨£¨ËµÊµ»°£¬ÕâĞ©È¨ÏŞÊÇ¿ª·¢ÖĞÊ¹ÓÃµÄÈ¨ÏŞ£¬Èç¹ûÓÃ»§Éú²ú»·¾³£¬Çë×ÔĞĞ¶ÔÓÚÓÃ»§´´½¨ÏàÓ¦µÄÏµÍ³È¨ÏŞ£©
-¾İËµÉú²ú»·¾³ÏÂ£¬Ö»ÊÇconnect resourceÕâÑùµÄ½ÇÉ«¾Í¿ÉÒÔÁË¡£ 
+èµ‹æƒï¼ˆè¯´å®è¯ï¼Œè¿™äº›æƒé™æ˜¯å¼€å‘ä¸­ä½¿ç”¨çš„æƒé™ï¼Œå¦‚æœç”¨æˆ·ç”Ÿäº§ç¯å¢ƒï¼Œè¯·è‡ªè¡Œå¯¹äºç”¨æˆ·åˆ›å»ºç›¸åº”çš„ç³»ç»Ÿæƒé™ï¼‰
+æ®è¯´ç”Ÿäº§ç¯å¢ƒä¸‹ï¼Œåªæ˜¯connect resourceè¿™æ ·çš„è§’è‰²å°±å¯ä»¥äº†ã€‚ 
 GRANT "CONNECT" TO "TESTER"; 
 GRANT "RESOURCE" TO "TESTER"; 
 GRANT "DBA" TO "TESTER"; 
 GRANT "EXP_FULL_DATABASE" TO "TESTER"; 
 GRANT "IMP_FULL_DATABASE" TO "TESTER"; 
-É¾³ıÓÃ»§£ºÀıÈç´´½¨ÁËÒ»¸öÓÃ»§ A£¬ÒªÉ¾³ıËü¿ÉÒÔÕâÑù×ö 
-connect sys/ÃÜÂë as sysdba; 
-drop user A cascade;//¾ÍÕâÑùÓÃ»§¾Í±»É¾³ıÁË 
-ÓÃ»§ĞŞ¸ÄÃÜÂë£¬½âËø 
+åˆ é™¤ç”¨æˆ·ï¼šä¾‹å¦‚åˆ›å»ºäº†ä¸€ä¸ªç”¨æˆ· Aï¼Œè¦åˆ é™¤å®ƒå¯ä»¥è¿™æ ·åš 
+connect sys/å¯†ç  as sysdba; 
+drop user A cascade;//å°±è¿™æ ·ç”¨æˆ·å°±è¢«åˆ é™¤äº† 
+ç”¨æˆ·ä¿®æ”¹å¯†ç ï¼Œè§£é” 
 ALTER USER "SCOTT" IDENTIFIED BY "*******" 
 ALTER USER "SCOTT" ACCOUNT UNLOCK 
-1.²é¿´ËùÓĞÓÃ»§£º 
+1.æŸ¥çœ‹æ‰€æœ‰ç”¨æˆ·ï¼š 
 select * from dba_user; 
 select * from all_users; 
 select * from user_users; 
-2.²é¿´ÓÃ»§ÏµÍ³È¨ÏŞ£º 
+2.æŸ¥çœ‹ç”¨æˆ·ç³»ç»Ÿæƒé™ï¼š 
 select * from dba_sys_privs; 
 select * from all_sys_privs; 
 select * from user_sys_privs; 
-3.²é¿´ÓÃ»§¶ÔÏóÈ¨ÏŞ£º 
+3.æŸ¥çœ‹ç”¨æˆ·å¯¹è±¡æƒé™ï¼š 
 select * from dba_tab_privs; 
 select * from all_tab_privs; 
 select * from user_tab_privs; 
-4.²é¿´ËùÓĞ½ÇÉ«£º 
+4.æŸ¥çœ‹æ‰€æœ‰è§’è‰²ï¼š 
 select * from dba_roles; 
-5.²é¿´ÓÃ»§ËùÓµÓĞµÄ½ÇÉ«£º 
+5.æŸ¥çœ‹ç”¨æˆ·æ‰€æ‹¥æœ‰çš„è§’è‰²ï¼š 
 select * from dba_role_privs; 
 select * from user_role_privs; 
-OracleÖĞĞÂ½¨ÓÃ»§Ãû 
-Á¬½ÓORACLEÊı¾İ¿â: 
-1¡¢ÔÚOracle Database AssistantÖĞ½¨Á¢×Ô¼ºµÄÊı¾İ¿â£» 
-2¡¢ÔÚOracle Net8 Easy configÖĞ½¨Á¢Á¬½ÓÓë×Ô¼ºµÄÊı¾İ¿âµÄÁ¬½Ó£¬È¡Ò»¸öserviceÃû£¬IP£ºÎª±¾µØIP 127.0.0.1,database sidÎªÄãËù½¨Á¢µÄ 
-Êı¾İ¿âµÄSID,ÓÃ»§ÃûÎª£ºsystem,ÃÜÂë£ºmanager»òÊÇ×Ô¼ºÉèµÄÃÜÂë; 
-3¡¢ÔÚSQLPLUSÖĞÁ¬½Ó×Ô¼ºµÄÊı¾İ¿â£¬ÓÃ»§ÃûÎª£ºsystem,ÃÜÂë£ºmanager»òÊÇ×Ô¼ºÉèµÄÃÜÂë,tom:Äã¸Õ½¨Á¢µÄserviceÃû. 
-4¡¢ÏÔÊ¾µ±Ç°Á¬½ÓÓÃ»§:show user; 
-5¡¢ĞÂ½¨ÓÃ»§²¢ÊÚÈ¨£ºsql>create user tom identified by ÃÜÂë; 
-sql> grant connect,resource to tom;//ÊÚÈ¨ 
-×¢£ºÊÚÈ¨»¹ÓĞ£ºcreate any procedure,select any dictionary(µÇÂ½oemĞèÒª),select any tableµÈ. 
-6¡¢ÔÚsqlplusÖĞÓÃ¸Õ½¨Á¢µÄÓÃ»§£ºtom/ÃÜÂë£¬Á¬½Ó£» 
-7¡¢½¨Á¢±í¿Õ¼ä¡£ 
-Êı¾İ¿âµÄ³õÊ¼»¯²ÎÊıÎÄ¼ş:init+ÊµÀıÃû.oraÎÄ¼ş,±à¼­´ËÎÄ¼şÖĞµÄÄÚÈİ,¿ÉÒÔ¸Ä±äÊı¾İ¿âÊ¹ÓÃµÄ·½·¨ºÍ·ÖÅäµÄ×ÊÔ´. 
-Æô¶¯ORACLEÊı¾İ¿â,ÔÚDOS·½Ê½ÏÂÔËĞĞsvrmgr30,È»ºóÊäÈëconnect internal,ÃÜÂëÎª:oracle,ÔÙÊäÈëstartup¼´¿É. 
-±í¿Õ¼äµÄ½¨Á¢:storage manager 
-»Ø¹ö¶Î¿ÉÔÚstorage managerÖĞ½¨Á¢ 
-Æô¶¯oracleÊı¾İ¿â 
-ÔÚDOS´°¿ÚÏÂ,ÊäÈësvrmgr30,Æô¶¯·şÎñÆ÷¹ÜÀíÆ÷,ÊäÈëconnect internal,ÊäÈëÃÜÂëoracle,ÊäÈëshutdown,¹Ø±ÕÊı¾İ¿â,ÊäÈëstartup,Æô¶¯Êı¾İ¿â. 
-1. Oracle°²×°Íê³ÉºóµÄ³õÊ¼¿ÚÁî?10gÒÔºó°²×°µÄÊ±ºòÑ¡¸ß¼¶£¬ÃÜÂë¶¼¿ÉÒÔ×Ô¼ºÉèÖÃ£¬ºÇºÇ£¬scott/tigerÊÇ²»±äµÄ¡£ 
-¡¡¡¡ internal/oracle 
-¡¡¡¡ sys/change_on_install 
-¡¡¡¡ system/manager 
-¡¡¡¡ scott/tiger 
-¡¡¡¡ sysman/oem_temp 
-½¨Á¢±í¿Õ¼ä 
+Oracleä¸­æ–°å»ºç”¨æˆ·å 
+è¿æ¥ORACLEæ•°æ®åº“: 
+1ã€åœ¨Oracle Database Assistantä¸­å»ºç«‹è‡ªå·±çš„æ•°æ®åº“ï¼› 
+2ã€åœ¨Oracle Net8 Easy configä¸­å»ºç«‹è¿æ¥ä¸è‡ªå·±çš„æ•°æ®åº“çš„è¿æ¥ï¼Œå–ä¸€ä¸ªserviceåï¼ŒIPï¼šä¸ºæœ¬åœ°IP 127.0.0.1,database sidä¸ºä½ æ‰€å»ºç«‹çš„ 
+æ•°æ®åº“çš„SID,ç”¨æˆ·åä¸ºï¼šsystem,å¯†ç ï¼šmanageræˆ–æ˜¯è‡ªå·±è®¾çš„å¯†ç ; 
+3ã€åœ¨SQLPLUSä¸­è¿æ¥è‡ªå·±çš„æ•°æ®åº“ï¼Œç”¨æˆ·åä¸ºï¼šsystem,å¯†ç ï¼šmanageræˆ–æ˜¯è‡ªå·±è®¾çš„å¯†ç ,tom:ä½ åˆšå»ºç«‹çš„serviceå. 
+4ã€æ˜¾ç¤ºå½“å‰è¿æ¥ç”¨æˆ·:show user; 
+5ã€æ–°å»ºç”¨æˆ·å¹¶æˆæƒï¼šsql>create user tom identified by å¯†ç ; 
+sql> grant connect,resource to tom;//æˆæƒ 
+æ³¨ï¼šæˆæƒè¿˜æœ‰ï¼šcreate any procedure,select any dictionary(ç™»é™†oeméœ€è¦),select any tableç­‰. 
+6ã€åœ¨sqlplusä¸­ç”¨åˆšå»ºç«‹çš„ç”¨æˆ·ï¼štom/å¯†ç ï¼Œè¿æ¥ï¼› 
+7ã€å»ºç«‹è¡¨ç©ºé—´ã€‚ 
+æ•°æ®åº“çš„åˆå§‹åŒ–å‚æ•°æ–‡ä»¶:init+å®ä¾‹å.oraæ–‡ä»¶,ç¼–è¾‘æ­¤æ–‡ä»¶ä¸­çš„å†…å®¹,å¯ä»¥æ”¹å˜æ•°æ®åº“ä½¿ç”¨çš„æ–¹æ³•å’Œåˆ†é…çš„èµ„æº. 
+å¯åŠ¨ORACLEæ•°æ®åº“,åœ¨DOSæ–¹å¼ä¸‹è¿è¡Œsvrmgr30,ç„¶åè¾“å…¥connect internal,å¯†ç ä¸º:oracle,å†è¾“å…¥startupå³å¯. 
+è¡¨ç©ºé—´çš„å»ºç«‹:storage manager 
+å›æ»šæ®µå¯åœ¨storage managerä¸­å»ºç«‹ 
+å¯åŠ¨oracleæ•°æ®åº“ 
+åœ¨DOSçª—å£ä¸‹,è¾“å…¥svrmgr30,å¯åŠ¨æœåŠ¡å™¨ç®¡ç†å™¨,è¾“å…¥connect internal,è¾“å…¥å¯†ç oracle,è¾“å…¥shutdown,å…³é—­æ•°æ®åº“,è¾“å…¥startup,å¯åŠ¨æ•°æ®åº“. 
+1. Oracleå®‰è£…å®Œæˆåçš„åˆå§‹å£ä»¤?10gä»¥åå®‰è£…çš„æ—¶å€™é€‰é«˜çº§ï¼Œå¯†ç éƒ½å¯ä»¥è‡ªå·±è®¾ç½®ï¼Œå‘µå‘µï¼Œscott/tigeræ˜¯ä¸å˜çš„ã€‚ 
+ã€€ã€€ internal/oracle 
+ã€€ã€€ sys/change_on_install 
+ã€€ã€€ system/manager 
+ã€€ã€€ scott/tiger 
+ã€€ã€€ sysman/oem_temp 
+å»ºç«‹è¡¨ç©ºé—´ 
 create tablespace test1 datafile 'd:tabletest1.dbf' size 1M; 
-´´½¨ÃûÎªwjqµÄÓÃ»§£¬ÆäÈ±Ê¡±í¿Õ¼äÎªtest1¡£ÔÚSQL*PLUSÒÔSYSÓÃ»§Á¬½ÓÊı¾İ¿â,ÔËĞĞÒÔÏÂ½Å±¾¡£ 
+åˆ›å»ºåä¸ºwjqçš„ç”¨æˆ·ï¼Œå…¶ç¼ºçœè¡¨ç©ºé—´ä¸ºtest1ã€‚åœ¨SQL*PLUSä»¥SYSç”¨æˆ·è¿æ¥æ•°æ®åº“,è¿è¡Œä»¥ä¸‹è„šæœ¬ã€‚ 
 create user wjq identified by password default tablespace test1; 
-ÒÔÓÃ»§wjqÁ¬½Ósqlplus 
-½¨Á¢±í:CREATE TABLE t1(empno NUMBER(5) PRIMARY KEY, ename VARCHAR2(15) NOT NULL, job VARCHAR2(10), mgr NUMBER(5),hiredate 
+ä»¥ç”¨æˆ·wjqè¿æ¥sqlplus 
+å»ºç«‹è¡¨:CREATE TABLE t1(empno NUMBER(5) PRIMARY KEY, ename VARCHAR2(15) NOT NULL, job VARCHAR2(10), mgr NUMBER(5),hiredate 
 DATE DEFAULT (sysdate), sal NUMBER(7,2), comm NUMBER(7,2)); 
-½¨Á¢±íT2²¢Ö¸¶¨´Ë±íµÄ±í¿Õ¼äÎªtest1:CREATE TABLE t2(empno NUMBER(5) PRIMARY KEY,ename VARCHAR2(15) NOT NULL, 
+å»ºç«‹è¡¨T2å¹¶æŒ‡å®šæ­¤è¡¨çš„è¡¨ç©ºé—´ä¸ºtest1:CREATE TABLE t2(empno NUMBER(5) PRIMARY KEY,ename VARCHAR2(15) NOT NULL, 
 job VARCHAR2(10),mgr NUMBER(5),hiredate DATE DEFAULT (sysdate),sal NUMBER(7,2),comm NUMBER(7,2)) TABLESPACE test1; 
-²åÈë¼ÇÂ¼:insert into t1 values(101,'wang','it',25,'',20,20);
+æ’å…¥è®°å½•:insert into t1 values(101,'wang','it',25,'',20,20);
 
 
-²éÑ¯µÄË³Ğò
-3 select ¡¾distinct¡¿  ÁĞÃû ±ğÃû
-1 from ¡¾ÓÃ»§Ãû¡¿±íÃ÷ ±ğÃû
-2 where  Ìõ¼ş
-4 order by  ×Ö¶Î¡¾ASC/DESC¡¿
+æŸ¥è¯¢çš„é¡ºåº
+3 select ã€distinctã€‘  åˆ—å åˆ«å
+1 from ã€ç”¨æˆ·åã€‘è¡¨æ˜ åˆ«å
+2 where  æ¡ä»¶
+4 order by  å­—æ®µã€ASC/DESCã€‘
+
+C:\app\zhangsan
+C:\app\zhangsan\product\11.2.0\dbhome_1
+sid mldn
+é«˜çº§å®‰è£…
+å­—ç¬¦é›†è®¾ç½®ä¸ºutf-8
+å¹¶ä¸”åˆ›å»ºä¸€ä¸ªå®ä¾‹æ•°æ®åº“ç”¨äºç»ƒä¹ 
+æ‰€æœ‰ç”¨æˆ·å¯†ç è®¾ç½®ä¸ºoracleadmin
+å®‰è£…å®Œæˆä¹‹åä½¿ç”¨å£ä»¤ç®¡ç†
+sys/change_on_install è¶…çº§ç®¡ç†å‘˜
+system/manger æ™®é€šç®¡ç†å‘˜å¤§æ•°æ®ç”¨æˆ·
+scott/tiger   æ™®é€šç”¨æˆ·
+sh/sh 
+
+conn sys/change_on_install as sysdba  è¿æ¥sysçš„æ—¶å€™å¿…é¡»ä½œä¸ºè¶…çº§ç®¡ç†å‘˜
+OracleServiceMLDN  å®ä¾‹æœåŠ¡
+OracleOraDb11g_home1TNSListener ç›‘å¬æœåŠ¡
 
 
+select * from scott.emp;ç”¨æˆ·å.è¡¨å
+col ename for A10 è®¾ç½®å•åˆ—enameæ˜¾ç¤ºæ ¼å¼åŒ–ä¸º10å­—ç¬¦é•¿åº¦
+é¦–å…ˆæ‰§è¡Œformè¯­å¥ï¼Œå†æ‰§è¡Œselectè¯­å¥
+select distinct * from emp;     distinctæ¶ˆé™¤é‡å¤
+select empno,ename,sal*12 as money from emp; ç”¨aså½“ä½œåˆ«å
+select empno,ename,sal*15+(200+100+100)*12+200*5 as income from emp;
+
+ select empno||ename from emp;è€Œåˆ—åˆå¹¶ä¸ºä¸€åˆ—æ˜¾ç¤º
+select 'é›‡å‘˜ç¼–å·: ' || empno || ', å§“å '|| ename || ' æ”¶å…¥ :'||sal info from emp; æ ¼å¼åŒ–å¤šåˆ—ä¸ºå•åˆ—
+å¹¶ä¸”æ·»åŠ å¸¸é‡  
+info ä½œä¸ºè¡¨åˆ«å,ä¸éœ€è¦å•å¼•å·
+
+<,  > ,>= ,<=,=,<>,!=æœ€åäºŒä¸ªæ˜¯ä¸ç­‰äº
+AND,OR,NOT
+BETWEEN...æœ€å°.AND  æœ€å¤§  åŒ…å«ç­‰äºçš„æƒ…å†µ  å¯ä»¥æå‡æŸ¥è¯¢æ€§èƒ½ï¼Œåªç”¨åŒ¹é…ä¸€æ¬¡æ¡ä»¶sele
+IN NOT IN
+IS NULL ,IS NOT NULL
+LIKE   _å•å­—ç¬¦   % 
+select * from emp where ename like '_A%';
+select * from emp where ename like 'A%';
+select * from emp where HIREDATE between '01-1æœˆ-81' and '31-12æœˆ-81';
+
+
+select * from emp where  empno  not in (7369,7566,7788,null);
+not in ä¸­ä¸èƒ½æœ‰ç©º
+
+å¦‚æœè¿›è¡Œäº†æŸ¥è¯¢å°±å˜æˆäº†æŸ¥è¯¢æ‰€æœ‰
+select * from emp
+è¿™æ˜¯oracle
+
+æ’åº
+order by å­—æ®µ ASC/DESC åœ¨selectæŸ¥è¯¢ä»¥åï¼Œæ‰€ä»¥å¯ä»¥ä½¿ç”¨selectçš„åˆ«å
+åªæœ‰orderbyå¯ä»¥è°ƒç”¨selectå®šä¹‰çš„åˆ«å
+
+å‰è€…ç›¸åŒæ‰æŒ‰ç…§åè€…æ’åº
+select * from emp  order by sal desc,hiredate;
+
+
+select å­å¥è½åäºwhereå­å¥ï¼Œæ‰€ä»¥selectå­å¥ä¸­å®šä¹‰çš„åˆ«åwhereä¸­æ— æ³•ä½¿ç”¨
+
+SELECT empno,ename,sal*12  income from emp order by income;
+
+SELECT empno,ename,sal*12 as income from emp order by income;
+select åˆ«åå…³é”®è¯aså¯ä»¥çœç•¥
+
+
+select * from emp where (job='MANAGER' and deptno=10) or (job='CLERK' and deptno=20);
+
+select * from emp where
+ename like '%A%' order by sal desc,hiredate,job;
