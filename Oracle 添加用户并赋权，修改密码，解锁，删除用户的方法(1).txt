@@ -69,7 +69,7 @@ job VARCHAR2(10),mgr NUMBER(5),hiredate DATE DEFAULT (sysdate),sal NUMBER(7,2),c
 查询的顺序
 5 select 【distinct】  列名 别名
 1 from 【用户名】表名 别名
-2 where  条件
+2 where  分组之前条件，不能使用统计函数，分组函数
 3 group by 分组字段
 4 having 分组后的过滤条件
 6 order by 字段【ASC/DESC】
