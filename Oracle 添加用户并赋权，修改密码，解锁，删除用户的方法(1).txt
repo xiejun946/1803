@@ -74,6 +74,35 @@ job VARCHAR2(10),mgr NUMBER(5),hiredate DATE DEFAULT (sysdate),sal NUMBER(7,2),c
 4 having 分组后的过滤条件
 6 order by 字段【ASC/DESC】
 
+数据集合操作
+
+select  empno,ename,job,deptno from emp where deptno=10
+union all
+select  empno,ename,job,deptno from emp;  不显示重复部分
+
+
+ select  empno,ename,job,deptno from emp where deptno=10
+ union all
+ select  empno,ename,job,deptno from emp;  显示所有
+
+ select  empno,ename,job,deptno from emp where deptno=10
+intersect
+ select  empno,ename,job,deptno from emp;  只显示交集
+
+select  empno,ename,job,deptno from emp
+minus
+select  empno,ename,job,deptno from emp where deptno=10;   显示差集，前一个查询结果减去第二个查询结果
+
+
+统计函数
+count(*|字段|distinct 字段)  max()  min() sum() avg()
+trunc()整数函数  months_between(a,b)a和b之间相隔几个月
+sysdate系统常量
+
+select trunc(avg(months_between(sysdate,hiredate)/12)) from emp;
+
+
+
 C:\app\zhangsan
 C:\app\zhangsan\product\11.2.0\dbhome_1
 sid mldn
@@ -142,3 +171,98 @@ select * from emp where (job='MANAGER' and deptno=10) or (job='CLERK' and deptno
 
 select * from emp where
 ename like '%A%' order by sal desc,hiredate,job;
+
+
+1, 
+select job from emp where ename='SCOTT';
+2
+select d.dname,count(empno) from emp e,dept d where e.deptno=d.deptno group by dname;
+select d.dname,count(empno) from emp e right OUTER JOIN dept d USING(deptno) group by dname;
+3,
+select ename from emp where job=(select job from emp where ename='SCOTT');
+
+4
+select e.ename,d.dname,count(empno) from emp e right OUTER JOIN dept d USING(deptno)  where job=(select job from emp where ename='SCOTT') group by dname;
+
+
+
+
+复制表
+
+
+ create table myemp as select * from emp;
+
+
+数据增加
+
+TO_DATE(1990-07-08,'yyyy-mm-dd')日期转换
+
+update myemp set sal=8000,comm=9000 where ename='SMITH';
+
+update myemp set sal=(select sal from myemp where ename='SCOTT') where ename='ALLEN';
+
+update myemp set sal=sal*1.2 where sal<(select avg(sal) from myemp);
+
+
+
+时间复杂度和空间复杂度
+更新操作不可能更新全部表，数据库就会死机
+除非你的数据量很小，停机更新
+比如之前我们。几个小时就行了
+可以通过程序实现，每次登录进行一次更新
+
+
+select resource_name,max_utilization,limit_value from v$resource_limit where resource_name in('processes','sessions');
+
+
+
+二个session对同一条数据进行更新操作时，后一条session会进行死锁
+需要进行commit或者rollback，前一条更新完成才能进行下一条数据
+
+
+
+DML
+增删改查进行不会自动事务
+DDL
+修改表结构的时候会进行自动事务
+没有提交的更新也会自动提交
+超级管理员sys，可以看v$process v$session
+
+DROP TABLE PURGE;
+DROP TABLE PURGE;
+DROP TABLE PURGE;
+
+
+CREATE TABLE customer(
+customerid varchar2(3),
+name varchar2(20) not null,
+location varchar2(50),
+constraint pk_customerid PRIMARY KEY(customerid)
+);
+
+CREATE TABLE product(
+productid varchar2(3),
+productname varchar2(20) not null,
+unitprice number,
+category varchar2(20),
+provider varchar2(20),
+constraint pk_productid PRIMARY KEY(productid),
+constraint ck_unitprice CHECK(unitprice>0)
+);
+
+CREATE TABLE purcase(
+customerid varchar2(3),
+productid varchar2(3),
+quantity number,
+constraint fk_customerid FOREIGN KEY(customerid) REFERENCES  customer(customerid) ON DELETE CASCADE,
+constraint fk_productid  FOREIGN KEY(productid) REFERENCES  product(productid) ON DELETE CASCADE,
+constraint ck_quantity CHECK(quantity between 0 and 20)
+);
+
+
+ORACLE RAC安装
+
+
+
+
+
