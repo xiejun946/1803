@@ -64,6 +64,7 @@ DATE DEFAULT (sysdate), sal NUMBER(7,2), comm NUMBER(7,2));
 建立表T2并指定此表的表空间为test1:CREATE TABLE t2(empno NUMBER(5) PRIMARY KEY,ename VARCHAR2(15) NOT NULL, 
 job VARCHAR2(10),mgr NUMBER(5),hiredate DATE DEFAULT (sysdate),sal NUMBER(7,2),comm NUMBER(7,2)) TABLESPACE test1; 
 插入记录:insert into t1 values(101,'wang','it',25,'',20,20);
+新建表的时候制定表空间可以防止默认users或者system系统表空间填满，影响数据库性能
 
 
 查询的顺序
@@ -257,7 +258,7 @@ quantity number,
 constraint fk_customerid FOREIGN KEY(customerid) REFERENCES  customer(customerid) ON DELETE CASCADE,
 constraint fk_productid  FOREIGN KEY(productid) REFERENCES  product(productid) ON DELETE CASCADE,
 constraint ck_quantity CHECK(quantity between 0 and 20)
-);
+) tablespace test1;
 
 
 ORACLE RAC安装
