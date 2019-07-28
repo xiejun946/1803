@@ -261,6 +261,24 @@ constraint ck_quantity CHECK(quantity between 0 and 20)
 ) tablespace test1;
 
 
+
+
+
+oracle 备份还原
+exp与imp命令
+数据库冷备份
+
+2rman
+rman target /
+要在数据库打开的同时启动rman备份，就必须打开归档模式，开启重做日志
+即启用介恢复
+shutdown immediate
+startup mount
+alter database archivelog
+alter database open
+ select FILE#,CHECKPOINT_CHANGE#,name from v$datafile_header; 可以查看表空间文件的scn值（时间戳），以及文件序号
+ 
+
 ORACLE RAC安装
 
 
