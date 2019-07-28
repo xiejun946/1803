@@ -277,7 +277,13 @@ startup mount
 alter database archivelog
 alter database open
  select FILE#,CHECKPOINT_CHANGE#,name from v$datafile_header; 可以查看表空间文件的scn值（时间戳），以及文件序号
- 
+ 在 完全备份之后
+ backup as copy database
+ 表空间文件意外删除以后
+ 可以通过
+ restore datafile 1
+ recover datafile 1来解决
+ 注意删除system表空间系统会出问题，无法启动，这时候rman需要退出然后重新进入，不然无法还原
 
 ORACLE RAC安装
 
