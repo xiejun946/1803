@@ -285,6 +285,14 @@ alter database open
  recover datafile 1来解决
  注意删除system表空间系统会出问题，无法启动，这时候rman需要退出然后重新进入，不然无法还原
 
+
+
+alter database open resetlogs;不完全恢复命令
+alter system switch logfile;切换日志
+/
+/
+代表过了2天，scn值会变化
+select FILE#,CHECKPOINT_CHANGE#,name from v$datafile_header; 
 ORACLE RAC安装
 
 
