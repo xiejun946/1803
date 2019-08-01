@@ -293,6 +293,15 @@ alter system switch logfile;切换日志
 /
 代表过了2天，scn值会变化
 select FILE#,CHECKPOINT_CHANGE#,name from v$datafile_header; 
+
+oracle中几个常用的数据字典
+v$database,v$datafile,v$datafile_header,v$log
+select FILE#,CHECKPOINT_CHANGE#,name from v$datafile; 
+select FILE#,CHECKPOINT_CHANGE#,name from v$datafile_header; 
+select  GROUP#,FIRST_CHANGE#,NEXT_CHANGE#  from v$log;
+select CURRENT_SCN,CHECKPOINT_CHANGE# from v$database;
+ 
+ 
 ORACLE RAC安装
 
 
