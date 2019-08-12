@@ -303,7 +303,7 @@ select CURRENT_SCN,CHECKPOINT_CHANGE# from v$database;
  
  
 ORACLE RAC安装
-
+rac中公网ip，vip和sacnip同一个网段，公网ip提供对外服务，内网ip提供node之间通信，scan提供负载均衡并且不需要每增加一个节点都配置一遍客户端监听文件，vip提供高可用，单一节点出问题，不实用tcpip协议判断，使用rac机制诊断
 
 
 
