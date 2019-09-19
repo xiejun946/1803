@@ -194,7 +194,8 @@ ONBOOT=yes
 
 
 java环境变量设置
-
+jdk java develop kit
+jre jave run enirment
 windows下
 
 装JDK 选择安装目录 安装过程中会出现两次 安装提示 。第一次是安装 jdk ，第二次是安装 jre 。建议两个都安装在同一个java文件夹中的不同文件夹中。（不能都安装在java文件夹的根目录下，jdk和jre安装在同一文件夹会出错）?
@@ -214,7 +215,7 @@ windows下
 系统变量→新建 CLASSPATH 变量
 变量值填写  .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（注意最前面有一点）
 系统变量配置完毕
-
+重启服务器生效
 检验是否配置成功 运行cmd 输入 java -version （java 和 -version 之间有空格）
 若如图所示 显示版本信息 则说明安装和配置成功。
   
