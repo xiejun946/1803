@@ -14,4 +14,11 @@
         得出结论1，IIS服务器，C盘缓存文件还没了解清楚不要删除，就比如线上服务器有些没有尝试过的操作不要动，比如
         redis-dump，没在线下尝试不要操作，要评估可能出现的后果，特别是删除操作
             
-            
+目前恢复node快照，明日讲etc3个节点单独部署到 机器上，实现一个虚拟机一个服务    
+# mv /var/lib/etcd/member /var/lib/member
+# rm -rf /var/lib/etcd/*
+# etcdctl snapshot restore /var/lib/member/snap/db --skip-hash-check=true
+2018-06-22 11:28:35.622666 I | mvcc: restore compact to 10177401
+2018-06-22 11:28:35.659626 I | etcdserver/membership: added member 8e9e05c52164694d [http://localhost:2380] to cluster cdf818194e3a8c32
+
+# systemctl start etcd       
