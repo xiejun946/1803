@@ -13,7 +13,8 @@
             
         得出结论1，IIS服务器，C盘缓存文件还没了解清楚不要删除，就比如线上服务器有些没有尝试过的操作不要动，比如
         redis-dump，没在线下尝试不要操作，要评估可能出现的后果，特别是删除操作
-            
+2019-12-29日，etcd集群突出崩溃
+结论为etcd磁盘空间不足，以及master节点内存不足导致的
 目前恢复node快照，明日讲etc3个节点单独部署到 机器上，实现一个虚拟机一个服务    
 # mv /var/lib/etcd/member /var/lib/member
 # rm -rf /var/lib/etcd/*
@@ -22,3 +23,38 @@
 2018-06-22 11:28:35.659626 I | etcdserver/membership: added member 8e9e05c52164694d [http://localhost:2380] to cluster cdf818194e3a8c32
 
 # systemctl start etcd       
+
+master节点中api配置文件
+
+KUBE_APISERVER_OPTS="--logtostderr=false \
+--v=2 \
+--log-dir=/opt/kubernetes/logs \
+--etcd-servers=https://192.168.10.121:2379,https://192.168.10.122:2379,https://192.168.10.123:2379 \
+--bind-address=192.168.10.63 \
+--secure-port=6443 \
+--advertise-address=192.168.10.63 \
+--allow-privileged=true \
+--service-cluster-ip-range=10.0.0.0/24 \
+--enable-admission-plugins=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota,NodeRestriction \
+--authorization-mode=RBAC,Node \
+--enable-bootstrap-token-auth=true \
+--token-auth-file=/opt/kubernetes/cfg/token.csv \
+--service-node-port-range=30000-32767 \
+--kubelet-client-certificate=/opt/kubernetes/ssl/server.pem \
+--kubelet-client-key=/opt/kubernetes/ssl/server-key.pem \
+--tls-cert-file=/opt/kubernetes/ssl/server.pem  \
+--tls-private-key-file=/opt/kubernetes/ssl/server-key.pem \
+--client-ca-file=/opt/kubernetes/ssl/ca.pem \
+--service-account-key-file=/opt/kubernetes/ssl/ca-key.pem \
+--etcd-cafile=/opt/kubernetes/ssl/etcd-ca.pem \    etcd节点中的3个证书
+--etcd-certfile=/opt/kubernetes/ssl/etcd-server.pem \
+--etcd-keyfile=/opt/kubernetes/ssl/etcd-server-key.pem \
+--audit-log-maxage=30 \
+--audit-log-maxbackup=3 \
+--audit-log-maxsize=100 \
+--audit-log-path=/opt/kubernetes/logs/k8s-audit.log"
+
+当etcd节点配置完成，加入k8s集群时，master节点和etcd无法连接
+查看/opt/kubernetes/logs/kube-apiserver.ERROR可以发现是证书错误，
+当切换etcd集群时也需要更换master节点中的证书
+
