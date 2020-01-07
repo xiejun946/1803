@@ -1,0 +1,78 @@
+nginx支持mmap，内存拷贝，利用mmap加速于内核的消息传递，即利用epol减少复制的复制消耗
+sendfile，
+epol，决定nginx比apache高负载量的关键就是epol多路复用IO模型
+events
+{
+use epoll;
+worker_connections 204800;
+}
+下面是简单nginx配置
+user www www;
+worker_processes 8;
+worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 
+01000000;
+error_log /www/log/nginx_error.log crit;
+pid /usr/local/nginx/nginx.pid;
+worker_rlimit_nofile 204800;
+events
+{
+use epoll;
+worker_connections 204800;
+}
+http
+{
+include mime.types;
+default_type application/octet-stream;
+charset utf-8;
+server_names_hash_bucket_size 128;
+client_header_buffer_size 2k;
+large_client_header_buffers 4 4k;
+client_max_body_size 8m;
+sendfile on;
+tcp_nopush on;
+keepalive_timeout 60;
+fastcgi_cache_path /usr/local/nginx/fastcgi_cache levels=1:2
+keys_zone=TEST:10m
+inactive=5m;
+fastcgi_connect_timeout 300;
+fastcgi_send_timeout 300;
+fastcgi_read_timeout 300;
+fastcgi_buffer_size 4k;
+fastcgi_buffers 8 4k;
+fastcgi_busy_buffers_size 8k;
+fastcgi_temp_file_write_size 8k;
+5
+sendfile on; 调用在两个文件描述符之间直接传递数据(完全在内核中操作)，从而避免了数据在内核缓冲区和用户缓冲区之间的拷贝，操作效率很高，被称之为零拷贝
+fastcgi_cache TEST;  开启 FastCGI 缓存并且为其制定一个名称。个人感觉开启缓存非常有用，可以有效降低CPU 负载，并且防止 502 错误。
+fastcgi_cache_valid 200 302 1h;
+fastcgi_cache_valid 301 1d; 
+fastcgi_cache_valid any 1m;
+fastcgi_cache_min_uses 1;
+fastcgi_cache_use_stale error timeout invalid_header http_500;
+open_file_cache max=204800 inactive=20s;
+open_file_cache_min_uses 1;
+open_file_cache_valid 30s;
+tcp_nodelay on;
+gzip on;
+gzip_min_length 1k;
+gzip_buffers 4 16k;
+gzip_http_version 1.0;
+gzip_comp_level 2;
+gzip_types text/plain application/x-javascript text/css application/xml;
+gzip_vary on;
+server
+{
+listen 8080;
+server_name backup.aiju.com;
+index index.php index.htm;
+root /www/html/;
+location /status
+{
+stub_status on;
+}
+location ~ .*\.(php|php5)?$
+{
+fastcgi_pass 127.0.0.1:9000;
+fastcgi_index index.php;
+include fcgi.conf;
+}
