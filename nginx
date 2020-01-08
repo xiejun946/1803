@@ -28,7 +28,6 @@ server_names_hash_bucket_size 128;
 client_header_buffer_size 2k;
 large_client_header_buffers 4 4k;
 client_max_body_size 8m;
-sendfile on;
 tcp_nopush on;
 keepalive_timeout 60;
 fastcgi_cache_path /usr/local/nginx/fastcgi_cache levels=1:2
@@ -41,9 +40,9 @@ fastcgi_buffer_size 4k;
 fastcgi_buffers 8 4k;
 fastcgi_busy_buffers_size 8k;
 fastcgi_temp_file_write_size 8k;
-5
 sendfile on; 调用在两个文件描述符之间直接传递数据(完全在内核中操作)，从而避免了数据在内核缓冲区和用户缓冲区之间的拷贝，操作效率很高，被称之为零拷贝
 fastcgi_cache TEST;  开启 FastCGI 缓存并且为其制定一个名称。个人感觉开启缓存非常有用，可以有效降低CPU 负载，并且防止 502 错误。
+server_tokens off; 关闭请求头中nginx版本号显示
 fastcgi_cache_valid 200 302 1h;
 fastcgi_cache_valid 301 1d; 
 fastcgi_cache_valid any 1m;
