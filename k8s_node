@@ -11,3 +11,19 @@ kubectl scale --replicas=6 deployment/tomcat-deployment
 删除
 kubectl delete deployment/tomcat-deployment
 滚动更新通过rs来控制
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-service 
+  labels:
+    app: tomcat
+spec:
+  type: NodePort  
+  ports:
+  - port: 80  svc的端口
+    targetPort: 8080  容器的端口
+  selector:
+    app: tomcat  标签关联后端的pod
+    
+    
+ svc通过endpoint动态感知后端pod的ip，通过标签label关联pod
