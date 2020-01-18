@@ -1,0 +1,13 @@
+deployement 升级
+kubectl set image deployment/nginx busybox=busybox nginx=nginx:1.9.1
+查看升级状态
+kubectl rollout status deployment/tomcat-deployment
+回滚
+kubectl rollout history deployment/tomcat-deployment 查看回滚历史
+kubectl rollout undo deployment/tomcat-deployment  回滚到上一个版本
+kubectl rollout undo deployment/tomcat-deployment --to-revision=5  回滚到指定版本
+升级副本扩容
+kubectl scale --replicas=6 deployment/tomcat-deployment
+删除
+kubectl delete deployment/tomcat-deployment
+滚动更新通过rs来控制
