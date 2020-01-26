@@ -27,3 +27,7 @@ spec:
     
     
  svc通过endpoint动态感知后端pod的ip，通过标签label关联pod
+
+kubectl exec 无法进入容器时，权限出错，实际上是kubelet没有权限
+error: unable to upgrade connection: Forbidden (user
+kubectl apply -f apiserver-to-kubelet-rbac.yaml 给kubelet授权
