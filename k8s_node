@@ -31,3 +31,5 @@ spec:
 kubectl exec 无法进入容器时，权限出错，实际上是kubelet没有权限
 error: unable to upgrade connection: Forbidden (user
 kubectl apply -f apiserver-to-kubelet-rbac.yaml 给kubelet授权
+升级完node节点内存之后，如果遇到kubelet无法启动，查看日志可以发现，无法找到docker守护进程，这时候需要重启docker即可
+
