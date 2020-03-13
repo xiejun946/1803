@@ -1,5 +1,6 @@
 nginx支持mmap，内存拷贝，利用mmap加速于内核的消息传递，即利用epol减少复制的复制消耗
-sendfile，
+sendfile on; 调用在两个文件描述符之间直接传递数据(完全在内核中操作)，从而避免了数据在内核缓冲区和用户缓冲区之间的拷贝，操作效率很高，被称之为零拷贝，linux是通过文件描述符来存储文件的，开启sendfile跳过硬盘缓冲区直接拷贝
+fastcgi_cache TEST;  开启 FastCGI 缓存并且为其制定一个名称。个人感觉开启缓存非常有用，可以有效降低CPU 负载，并且防止 502 错误。
 epol，决定nginx比apache高负载量的关键就是epol多路复用IO模型
 events
 {
