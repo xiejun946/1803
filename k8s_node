@@ -36,3 +36,9 @@ ingress 可以实现域名访问而不用ip加端口的方式，以及负载均�
 
 secret保存证书
 kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file [--dry-run] [options]
+
+wordloadhuo或者控制器分五类
+deployment，statefulset，daemonset，job，cronjob
+
+db-0.my-service.default等价于ip，用语不同服务之间调用
+
