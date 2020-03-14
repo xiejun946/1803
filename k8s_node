@@ -57,14 +57,10 @@ spec:
 
 创建一个pod的过程
 
-用户通过Kubectl提交一个创建RC的请求，该请求通过APIServer被写入etcd中，此时Controller Manager通过API Server的监听资源变化的接口监听到这个RC事件，
-
-         分析之后，发现当前集群中还没有它所对应的Pod实例，于是根据RC里的Pod模板定义生成一个Pod对象，通过APIServer写入etcd
-
-         至此，API Server 创建过程完成，剩下的由 scheduler 和 kubelet 来完成，此时 pod 处于 pending 状态
-
-此事件被Scheduler发现，它立即执行一个复杂的调度流程，为这个新Pod选定一个落户的Node，然后通过API Server讲这一结果写入到etcd中，
-
-         目标Node上运行的Kubelet进程通过APIServer监测到这个“新生的”Pod，并按照它的定义，启动该Pod并任劳任怨地负责它的下半生，直到Pod的生命结束。
+1用户通过Kubectl提交一个创建RC的请求，该请求通过APIServer被写入etcd中，
+2此时Controller Manager通过API Server的监听资源变化的接口监听到这个RC事件，分析之后，发现当前集群中还没有它所对应的Pod实例，
+于是根据RC里的Pod模板定义生成一个Pod对象，通过APIServer写入etcd，此时 pod 处于 pending 状态
+3此事件被Scheduler发现，它立即执行一个复杂的调度流程，为这个新Pod选定一个落户的Node，然后通过API Server讲这一结果写入到etcd中，
+4目标Node上运行的Kubelet进程通过APIServer监测到这个“新生的”Pod，pending状态，并按照它的定义，启动该Pod。
 
 
