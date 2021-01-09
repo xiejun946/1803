@@ -64,7 +64,7 @@ server
 {
 listen 8080;
 server_name backup.aiju.com;
-index index.php index.htm;
+index index.php index.htm;= ≥÷  😏😭
 root /www/html/;
 location /status
 {

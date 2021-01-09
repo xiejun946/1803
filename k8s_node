@@ -6,6 +6,11 @@ kubectl rollout status deployment/tomcat-deployment
 kubectl rollout history deployment/tomcat-deployment 查看回滚历史
 kubectl rollout undo deployment/tomcat-deployment  回滚到上一个版本
 kubectl rollout undo deployment/tomcat-deployment --to-revision=5  回滚到指定版本
+
+通过制定新的镜像来滚动更新pod从v1到v2
+kubectl rolling-update frontend-v1 frontend-v2 --image=image:v2
+通过指定yml文件或者json文件
+kubectl rolling-update frontend-v1 -f frontend-v2.json 
 升级副本扩容
 kubectl scale --replicas=6 deployment/tomcat-deployment
 删除
@@ -37,7 +42,7 @@ ingress 可以实现域名访问而不用ip加端口的方式，以及负载均�
 secret保存证书
 kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file [--dry-run] [options]
 
-wordloadhuo或者控制器分五类
+wordload或者控制器分五类
 deployment，statefulset，daemonset，job，cronjob
 
 db-0.my-service.default等价于ip，用语不同服务之间调用
